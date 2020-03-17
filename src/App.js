@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 
 const App = props => {
   const [state, setState] = useState(props)
 
   const { name, price } = state
+
+  useEffect(() => {
+    console.log('this is like componentDidmount')
+  }, [price])
 
   const increment = () => {
     setState({ ...state, price: state.price + 1 })

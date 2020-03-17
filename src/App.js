@@ -2,20 +2,20 @@ import React, { useState } from 'react'
 import './App.css'
 
 const App = props => {
-  const [name, setName] = useState(props.name)
-  const [price, setPrice] = useState(props.price)
+  const [state, setState] = useState(props)
+
+  const { name, price } = state
 
   const increment = () => {
-    setPrice(price + 1)
+    setState({ ...state, price: state.price + 1 })
   }
 
   const decrement = () => {
-    setPrice(price - 1)
+    setState({ ...state, price: state.price - 1 })
   }
 
   const reset = () => {
-    setPrice(props.price)
-    setName(props.name)
+    setState(props)
   }
 
   return (
@@ -25,7 +25,7 @@ const App = props => {
       </h1>
       <button onClick={() => increment()}>+</button>
       <button onClick={() => decrement()}>-</button>
-      <input onChange={e => setName(e.target.value)} />
+      <input onChange={e => setState({ ...state, name: e.target.value })} />
       <button onClick={() => reset()}>reset</button>
     </div>
   )

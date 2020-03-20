@@ -1,4 +1,5 @@
 import React from 'react';
+import {DELETE_EVENT} from '../actions/';
 
 const Event = ({event, dispatch }) => {
     
@@ -6,7 +7,7 @@ const Event = ({event, dispatch }) => {
         const result = window.confirm(`id=${event.id}を削除しますか？`)
         if (result) {
             dispatch({
-            type: 'DELETE_EVENT',
+            type: DELETE_EVENT,
             id: event.id,
             title: event.title,
             body: event.body

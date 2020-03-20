@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {DELETE_ALL_EVENTS} from '../actions/';
 
 const EventForm = ({state, dispatch}) => {
 
@@ -22,7 +23,7 @@ const EventForm = ({state, dispatch}) => {
     const result = window.confirm('本当に削除しますか？')
     if (result) {
       dispatch({
-        type: 'DELETE_ALL_EVENTS',
+        type: DELETE_ALL_EVENTS,
       })
     } else {
       return state;

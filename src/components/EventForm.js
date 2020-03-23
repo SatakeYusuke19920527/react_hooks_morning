@@ -27,7 +27,7 @@ const EventForm = () => {
         type: DELETE_ALL_EVENTS
       })
     } else {
-      return state
+      return state.events
     }
   }
 
@@ -68,7 +68,7 @@ const EventForm = () => {
           type='submit'
           className='btn btn-danger'
           onClick={deleteAllEvents}
-          disabled={state.length === 0}
+          disabled={state.events.length === 0}
         >
           全てのイベントを削除する
         </button>
